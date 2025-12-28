@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { HashRouter } from "react-router-dom";
 import App from "./App";
 import "./index.css";
+import { supabase } from "./lib/supabase";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <HashRouter>
+supabase.auth.getSession().then(({ data }) => {
+  const session = data.session;
+
+  ReactDOM.createRoot(document.getElementById("root")!).render(
+    <React.StrictMode>
       <App />
-    </HashRouter>
-  </React.StrictMode>
-);
+    </React.StrictMode>
+  );
+});
