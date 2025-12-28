@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { supabase } from "@/lib/supabaseClient";
 
-const AuthCallback = () => {
+export default function AuthCallback() {
   useEffect(() => {
-    supabase.auth.getSession().then(() => {
-      window.location.replace("/dashboard");
+    supabase.auth.getSession().then(({ data }) => {
+      if (data.session) {
+        window.location.replace("/dashboard");
+      }
     });
   }, []);
 
-  return <p>Signing you in...</p>;
-};
-
-export default AuthCallback;
+  return <h2>Signing you in...</h2>;
+}
