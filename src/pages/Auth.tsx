@@ -93,7 +93,7 @@ const Auth = () => {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
-        options: { redirectTo: "https://vision-form-assist.vercel.app/dashboard" },
+        options: { redirectTo: "http://localhost:8080/dashboard" },
       });
       if (error) throw error;
     } catch (error: any) {
