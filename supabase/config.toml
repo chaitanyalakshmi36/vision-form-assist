@@ -1,0 +1,10 @@
+project_id = "ucjuslcuvreptsuaxguq"
+
+[functions.process-document]
+verify_jwt = false
+
+[functions.ai-assistant]
+verify_jwt = false
+
+[functions.translate]
+verify_jwt = false
